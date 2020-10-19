@@ -1,0 +1,16 @@
+
+.header-container{
+
+    .ant-menu{
+        float: right;
+    }
+    .ant-menu-horizontal:not(.ant-menu-dark)  > .menu-subs{
+        padding-left: 8px;
+    }
+
+}
+
+ul.ant-menu-vertical.ant-menu-sub{
+    min-width: 100px;
+    text-align: center;
+}

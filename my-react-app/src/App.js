@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
 import './App.css';
+import routers from "./router";
+import "antd/dist/antd.css";
+import { renderRoutes } from "react-router-config";
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
+import Header from "./components/header"
+
+function App(props) {
+  console.log("app",props)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Header props={props}></Header>
+          {
+            renderRoutes(routers)
+          }
+     
+      </BrowserRouter>
+     
     </div>
   );
 }
 
-export default App;
+// 登录状态管理
+const mapStateToProps = (state) => {
+  return {state}
+}
+
+export default connect(mapStateToProps)(App);
